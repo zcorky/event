@@ -1,0 +1,27 @@
+{
+  "name": "event",
+  "version": "1.0.0",
+  "description": "A simple event library",
+  "main": "lib/index.js",
+  "repository": "https://github.com/zcorky/event",
+  "author": "Zero",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "npm run clean && rollup -c",
+    "clean": "rimraf -rf lib",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "rollup": "^0.59.1",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-uglify": "^3.0.0",
+    "tslint": "^5.10.0",
+    "tslint-eslint-rules": "^5.3.1",
+    "tslint-jsdoc-rules": "^0.1.2",
+    "typescript": "^2.8.3",
+    "uglify-es": "^3.3.9"
+  }
+}
