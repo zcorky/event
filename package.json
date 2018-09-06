@@ -1,6 +1,6 @@
 {
   "name": "event",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple event library",
   "main": "lib/index.js",
   "repository": "https://github.com/zcorky/event",
@@ -9,6 +9,7 @@
   "private": false,
   "scripts": {
     "build": "npm run clean && rollup -c",
+    "build:tsc": "npm run clean && tsc",
     "clean": "rimraf -rf lib",
     "test": "mocha"
   },

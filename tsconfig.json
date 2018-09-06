@@ -8,7 +8,9 @@
         "noUnusedLocals": true,
         "outDir": "lib",
         "lib": ["es2015"],
-        "declaration": true
+        "declaration": true,
+        "sourceMap": true,
+        "removeComments": true
     },
     "include": ["src/**/*.ts"]
 }
