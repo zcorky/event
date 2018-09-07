@@ -1,37 +1,37 @@
-# delay [![Build Status](https://travis-ci.org/zcorky/delay.svg?branch=master)](https://travis-ci.org/zcorky/delay)
+# event [![Build Status](https://travis-ci.org/zcorky/event.svg?branch=master)](https://travis-ci.org/zcorky/event)
 
-> A simple promise delay
+> A simple event lib
 
 ## Install
 
 ```
-$ npm install @zcorky/delay
+$ npm install @zcorky/event
 ```
 
 
 ## Usage
 
 ```js
-const delay = require('@zcorky/delay').delay;
-// import { delay } from '@zcorky/delay'; // ts or es6
+const Event = require('@zcorky/event').Event;
+// import { Event } from '@zcorky/event'; // ts or es6
 
-function bar() {
-  console.log('time: ', Date.now());
-}
+const eventBus = new Event();
+const handler = data => {
+	// save data
+};
 
-(async () => {
-	bar();
+// register an event
+event.on('save', handler);
 
-	await delay(100);
+// trigger an event
+event.emit('save', { type: 'image', payload: { id: 111, list: [] } });
 
-	// Executed 100 milliseconds later
-	baz();
-})();
+// unregister an event
+event.off('save', handler);
+
+// register an once event
+event.once('save/once', handler);
 ```
-
-## Related
-
-- [delay](https://github.com/sindresorhus/delay) - Delay a promise a specified amount of time
 
 ## License
 
