@@ -1,28 +1,50 @@
 {
-  "name": "event",
-  "version": "1.0.1",
-  "description": "A simple event library",
+  "name": "@zcorky/event",
+  "version": "1.0.0",
+  "description": "A simple event",
   "main": "lib/index.js",
   "repository": "https://github.com/zcorky/event",
   "author": "Zero",
   "license": "MIT",
-  "private": false,
   "scripts": {
-    "build": "npm run clean && rollup -c",
-    "build:tsc": "npm run clean && tsc",
+    "build": "npm run clean && tsc",
     "clean": "rimraf -rf lib",
-    "test": "mocha"
+    "test": "NODE_ENV=test nyc mocha test/*.spec.ts --exit",
+    "prepublish": "npm run build"
   },
   "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.9.4",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
     "rimraf": "^2.6.2",
-    "rollup": "^0.59.1",
-    "rollup-plugin-node-resolve": "^3.3.0",
-    "rollup-plugin-typescript": "^0.8.1",
-    "rollup-plugin-uglify": "^3.0.0",
+    "source-map-support": "^0.5.9",
+    "ts-node": "^7.0.1",
     "tslint": "^5.10.0",
     "tslint-eslint-rules": "^5.3.1",
     "tslint-jsdoc-rules": "^0.1.2",
-    "typescript": "^2.8.3",
-    "uglify-es": "^3.3.9"
+    "typescript": "^2.8.3"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/index.d.ts"
+  ],
+  "nyc": {
+    "include": [
+      "src/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
